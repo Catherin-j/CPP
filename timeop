@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+class timeop{
+    private:
+    int HR ,MIN,SEC;
+    public:
+    void settime(int a,int b,int c){
+        HR=a;
+        MIN=b;
+        SEC=c;
+    }
+
+    void show(){
+        cout <<"time:"<<HR<<":"<<MIN<<":"<<SEC<<endl;
+    }
+    void normalise(){
+        MIN=MIN+SEC/60;
+        SEC=SEC%60;
+        HR=HR+MIN/60;
+        MIN=MIN%60;
+    }
+    timeop operator +(timeop T){
+      timeop p;
+      p.SEC=SEC+T.SEC;
+      p.MIN=MIN+T.MIN;
+      p.HR=HR+T.HR;
+    }
+}
+
+int main(){
+    timeop t1,t2,t3;
+    t1.settime(1,5,9);
+    t2.settime(9,6,2);
+    t3=t1+t2;
+    t3.show();
+    return 0;
+}

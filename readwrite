@@ -1,0 +1,10 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+int main(){
+ fstream myfile;
+ myfile.open("cath.txt",ios::out);
+ myfile<<"this is file handling"<<endl;
+ myfile.close();
+ return 0;
+}
